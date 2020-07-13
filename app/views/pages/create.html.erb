@@ -1,0 +1,17 @@
+<div class="container m-5 shadow-lg p-3 mb-5 bg-white rounded p-5">
+    <% if @project.errors.any? %>
+        <div id="Error_explanation" class="text-center">
+            <h2><i class="fas fa-exclamation-triangle text-warning"></i>
+                <%= pluralize(@project.errors.count, "error" )%>
+                prohibited this Project from being saved:
+            </h2>
+            <ul>
+                <% @project.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% else %>
+        <h1 class="text-center">Se registro con exito el Proyecto <i class="fas fa-rocket text-success"></i></h1>
+    <% end %>
+</div>

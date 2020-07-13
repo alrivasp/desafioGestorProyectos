@@ -1,0 +1,42 @@
+<div class="container m-5 shadow-lg p-3 mb-5 bg-white rounded">
+    <h3 class="text-center">DASHBOARD PROYECTOS <i class="fas fa-project-diagram fa-1x"></i></h3>
+    <div class="m-3">
+        <form class="form-inline my-2 my-lg-0 justify-content-md-end" method="get" action="">
+            <label for="stateProject">Filtrar por Estado : &nbsp;</label>
+            <select name="state_filter" id="stateProject" aria-describedby="stateProjectlHelp" class="rounded-pill">
+                <option disabled="disabled" selected="true" value="Todos">TODOS </option>
+                <option value="Propuesta">PROPUESTA </option>
+                <option value="En Progreso">EN PROGRESO</option>
+                <option value="Terminado">TERMINADO</option>
+            </select>
+            &nbsp;<button class="btn btn-outline-success my-2 my-sm-0 rounded-pill" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="container">
+        <table class="table table-striped table-dark">
+            <thead class="bg-warning text-dark text-center">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">DESCRIPCION</th>
+                    <th scope="col">FECHA INICIO</th>
+                    <th scope="col">FECHA TERMINO</th>
+                    <th scope="col">ESTADO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @project.each do |p| %>
+                <tr class="text-center">
+                    <th scope="row"><%= p.id %></th>
+                    <td><%= p.name %></td>
+                    <td><%= p.description %></td>
+                    <td><%= p.start_date %></td>
+                    <td><%= p.end_date %></td>
+                    <td><%= p.state %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%= params[:state_filter] %>

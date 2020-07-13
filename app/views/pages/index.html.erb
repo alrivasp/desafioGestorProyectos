@@ -1,0 +1,43 @@
+<div class="container m-5 shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="m-3">
+        <h3 class="text-center">FORMULARIO CREACION DE PROYECTO <i class="fas fa-project-diagram fa-1x"></i></h3>        
+    </div>   
+    <form method="get" action="/pages/create" class="m-5" id="create_posts">
+        <div class="form-group">
+            <label for="nameProject">Nombre</label>
+            <input type="text" class="form-control" id="nameProject" aria-describedby="namelHelp" name="name" placeholder="Ingrese Nombre de Proyecto" >
+            <small id="namelHelp" class="form-text text-muted">Ingreso de Nombre de Proyecto es obligatorio.</small>
+        </div>
+        <div class="form-group">
+            <label for="descriptionProject">Descripcion</label>
+            <textArea type="text" class="form-control" id="descriptionProject" aria-describedby="descriptionlHelp" name="description" placeholder="Descripcion de Proyecto" ></textArea>
+            <small id="descriptionlHelp" class="form-text text-muted">Ingreso de Descripcion es obligatorio.</small>
+        </div>
+        <div class="form-group border p-2">
+            <div class="row justify-content-around align-items-center">
+                <div class="col-4 ">
+                    <label for="startDate">Fecha Inicio:</label>
+                    <input type="date" id="startDate" aria-describedby="starDatelHelp" name="start_date" step="1" min="<%= Time.now.strftime("%Y-%m-%d") %>" max="2022-12-31" value="<%= Time.now.strftime("%Y-%m-%d") %>">
+                    <small id="startDatelHelp" class="form-text text-muted">Ingreso de Fecha de Inicio del Proyecto.</small>
+                </div>
+                <div class="col-4">
+                    <label for="endDate">Fecha Termino:</label>
+                    <input type="date" id="endDate" aria-describedby="endDatelHelp" name="end_date" step="1" min="<%= Time.now.strftime("%Y-%m-%d") %>" max="2022-12-31" value="<%= Time.now.strftime("%Y-%m-%d") %>">
+                    <small id="endDatelHelp" class="form-text text-muted">Ingreso de Fecha de Termino del Proyecto.</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="border p-2 text-center">
+                <label for="stateProject">Estado:</label>
+                <select name="state" id="stateProject" aria-describedby="stateProjectlHelp">
+                    <option value="Propuesta">PROPUESTA</option>
+                    <option value="En Progreso">EN PROGRESO</option>
+                    <option value="Terminado">TERMINADO</option>
+                </select>
+                <small id="stateProjectlHelp" class="form-text text-muted">Seleccione el Estado del Proyecto.</small>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark">Registrar</button>
+    </form>
+</div>
